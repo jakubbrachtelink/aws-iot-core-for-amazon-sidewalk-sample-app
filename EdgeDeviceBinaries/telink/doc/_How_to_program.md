@@ -4,6 +4,8 @@ Connect the AIOT-DK1 board to the PC via the J12 connector, as shown below.
 
 Start the BDT tool.
 
+see Telink Burning and Debugging Tool [download here](https://www.telink-semi.com/development-tools)
+
 ![Select the Onboard Programmer](sellect_internal_programmer.png)
 
 Make sure the hardware has been detected by the BDT tool. If the panel (1) is empty, click “Install Drivers” (2) and follow the instructions.

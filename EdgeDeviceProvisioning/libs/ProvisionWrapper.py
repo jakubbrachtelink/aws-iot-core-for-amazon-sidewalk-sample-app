@@ -160,11 +160,15 @@ class ProvisionWrapper:
                                                                  outfile_s37=sl_xg24_mfg_s37)
 
     def generate_bin_and_hex_from_aws_jsons(self, device_json, profile_json, board, out_bin, chip, out_hex, addr=None):
-        assert board in (BoardType.Nordic, BoardType.TI, BoardType.Telink), "Operation supported only for Nordic and TI"
+        assert board in (BoardType.Nordic, BoardType.TI, BoardType.Telink), "Operation supported only for Nordic, Telink and TI"
 
-        platform = "ti" if board == BoardType.TI else "nordic"
-        if BoardType.Telink:
+        if board == BoardType.Telink:
             platform = "telink"
+        elif board == BoardType.TI:
+            platform = "ti"
+        else:
+            platform = "nordic"
+
         args = [sys.executable, 'provision.py', platform, 'aws', '--wireless_device_json', device_json,
                                       '--device_profile_json', profile_json,
                                       '--output_bin', out_bin, '--chip', chip, '--output_hex', out_hex]
@@ -185,11 +189,14 @@ class ProvisionWrapper:
         print_subprocess_results(result, subprocess_name="provision.py")
 
     def generate_bin_and_hex_from_certificate_json(self, certificate, board, out_bin, chip, out_hex, addr=None):
-        assert board in (BoardType.Nordic, BoardType.TI, BoardType.Telink), "Operation supported only for Nordic and TI"
+        assert board in (BoardType.Nordic, BoardType.TI, BoardType.Telink), "Operation supported only for Nordic, Telink and TI"
 
-        platform = "ti" if board == BoardType.TI else "nordic"
-        if BoardType.Telink:
+        if board == BoardType.Telink:
             platform = "telink"
+        elif board == BoardType.TI:
+            platform = "ti"
+        else:
+            platform = "nordic"
         args = [sys.executable, 'provision.py', platform, 'aws', '--certificate_json', certificate,
                                       '--output_bin', out_bin, '--chip', chip, '--output_hex', out_hex]
         if addr:
