@@ -44,8 +44,8 @@ If you are not sure whether you have coverage, we recommend you turn on an opera
     - Flashing Drivers: *Segger JLink* (https://www.segger.com/downloads/jlink/)
     - Flashing Tool: *Simplicity Commander* (https://community.silabs.com/s/article/simplicity-commander)
   - Telink:
-    - Flashing Tool: *BDT Tool* (https://telink-semi.com)
-
+    - VS Code Support: *Telink VS Code Extension* (https://www.telink-semi.com/development-tools)
+    - Flashing Tool: *Telink Burning and Debugging Tool* (https://www.telink-semi.com/development-tools)
 
 Make sure *Simplicity Commander* (for SiLabs) are present in your system PATH environment variable.  
 --> Try calling `commander --version` in the terminal to make sure the Simplicity Commander is available
